@@ -31,6 +31,9 @@ public class TestController {
         //track a custom dependency
         telemetryClient.trackDependency("SQL", "Insert", new Duration(0, 0, 2, 1, 1), true);
 
+        //track a custom dependency
+        telemetryClient.trackDependency("SQL", "Delete", new Duration(0, 0, 0, 10, 1), true);
+
         return "hello";
     }
 }
