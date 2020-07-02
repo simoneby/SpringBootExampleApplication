@@ -29,7 +29,7 @@ public class TestController {
         telemetryClient.trackMetric("custom metric", 1.0);
 
         //track a custom dependency
-        telemetryClient.trackDependency("SQL", "Insert", new Duration(0, 0, 1, 1, 1), true);
+        telemetryClient.trackDependency("SQL", "Insert", new Duration(0, 0, 2, 1, 1), true);
 
         return "hello";
     }
