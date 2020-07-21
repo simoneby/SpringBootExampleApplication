@@ -31,6 +31,10 @@ public class HelloController {
 
     @RequestMapping("/pulse")
     public String index2() {
+
+        // one instance, reuse
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+
         HttpGet request = new HttpGet("https://www.google.com/search?q=mkyong");
 
         // add request headers
