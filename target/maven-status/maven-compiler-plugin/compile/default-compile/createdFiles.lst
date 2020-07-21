@@ -1,7 +1,6 @@
 com\example\ELKdemo\dbconnect\UserRepository.class
 com\example\ELKdemo\ServletInitializer.class
 com\example\ELKdemo\dbconnect\MainController.class
-com\example\ELKdemo\controller\TestController.class
 com\example\ELKdemo\HelloController.class
 com\example\ELKdemo\Application.class
 com\example\ELKdemo\dbconnect\User.class

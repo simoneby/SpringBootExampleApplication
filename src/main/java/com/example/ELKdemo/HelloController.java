@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HelloController {
 
 
-    @RequestMapping("/")
+    @RequestMapping("/pulse")
     public String index() {
         return "Greetings from Spring Boot!";
     }
-//New comment2
+
 }
