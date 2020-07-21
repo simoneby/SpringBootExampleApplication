@@ -29,72 +29,27 @@ public class HelloController {
         return "Greetings from Spring Boot!";
     }
 
-    @RequestMapping("/hello")
+    @RequestMapping("/pulse")
     public String index2() {
 
-        // one instance, reuse
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
-        HttpGet request = new HttpGet("http://localhost:8080");
-
-        // add request headers
-        //request.addHeader("custom-key", "mkyong");
-        //request.addHeader(HttpHeaders.USER_AGENT, "Googlebot");
-
+        HttpGet request = new HttpGet("http://localhost:8080/hello");
         try (CloseableHttpResponse response = httpClient.execute(request)) {
-
-            // Get HttpResponse Status
+            System.out.println("8080 hello triggered");
             System.out.println(response.getStatusLine().toString());
-
-            HttpEntity entity = response.getEntity();
-            Header headers = entity.getContentType();
-            System.out.println(headers);
-
-            if (entity != null) {
-                // return it as a String
-                String result = EntityUtils.toString(entity);
-                System.out.println(result);
-                return result;
-            }
-
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
         }
-        return "No entry...";
-    }
 
-    @RequestMapping("/helloJSON")
-    public String index3() {
-
-        // one instance, reuse
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-
-        HttpGet request = new HttpGet("http://localhost:8082");
-
-        // add request headers
-        //request.addHeader("custom-key", "mkyong");
-        //request.addHeader(HttpHeaders.USER_AGENT, "Googlebot");
-
-        try (CloseableHttpResponse response = httpClient.execute(request)) {
-
-            // Get HttpResponse Status
+        HttpGet request2 = new HttpGet("http://localhost:8082/helloJSON");
+        try (CloseableHttpResponse response = httpClient.execute(request2)) {
+            System.out.println("8082 helloJSON triggered");
             System.out.println(response.getStatusLine().toString());
-
-            HttpEntity entity = response.getEntity();
-            Header headers = entity.getContentType();
-            System.out.println(headers);
-
-            if (entity != null) {
-                // return it as a String
-                String result = EntityUtils.toString(entity);
-                System.out.println(result);
-                return result;
-            }
-
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
         }
-        return "No entry...";
+        return "Triggered";
     }
 
 }
