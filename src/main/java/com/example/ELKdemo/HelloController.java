@@ -53,10 +53,12 @@ public class HelloController {
             if (entity != null) {
                 // return it as a String
                 String result = EntityUtils.toString(entity);
-                return result;
                 System.out.println(result);
+                return result;
             }
 
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e);
         }
         return "No entry...";
     }
