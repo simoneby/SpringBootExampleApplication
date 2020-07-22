@@ -33,23 +33,26 @@ public class HelloController {
     public String index2() {
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
-
-        HttpGet request = new HttpGet("http://localhost:8080/hello");
+        String response1 = "";
+        String response2 = "";
+        HttpGet request = new HttpGet("164.90.213.129:8080/hello");
         try (CloseableHttpResponse response = httpClient.execute(request)) {
             System.out.println("8080 hello triggered");
             System.out.println(response.getStatusLine().toString());
+            response1 = "8080 hello triggered!";
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
         }
 
-        HttpGet request2 = new HttpGet("http://localhost:8082/helloJSON");
+        HttpGet request2 = new HttpGet("164.90.213.129:8082/helloJSON");
         try (CloseableHttpResponse response = httpClient.execute(request2)) {
             System.out.println("8082 helloJSON triggered");
             System.out.println(response.getStatusLine().toString());
+            response2 = "8082 helloJSON triggered";
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
         }
-        return "Triggered";
+        return "List of triggered: " + response1 + ", " + response2;
     }
 
 }
